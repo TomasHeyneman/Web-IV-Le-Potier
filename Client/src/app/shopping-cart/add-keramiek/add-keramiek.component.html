@@ -1,0 +1,152 @@
+<!-- REMOVE {{ keramiekFormGroup.value | json }} 
+{{keramiekFormGroup.status}}
+<br/>
+{{keramiekFormGroup.valid}} -->
+<!-- <div class="container"> -->
+<!-- "row-cols-md" -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div>
+      <!-- *ngIf="keramiekFormGroup.get('name')['errors'] && keramiekFormGroup.get('name').touched" -->
+      <form [formGroup]="keramiekFormGroup" (ngSubmit)="onSubmit()">
+        <label for="KeramiekElement">{{ 'Keramiek' | translate }}</label>
+        <input
+          class="form-control mb-3"
+          id="inlineFormInput"
+          placeholder="{{ 'keramiek.name.pot' | translate}}"
+          type="text"
+          aria-label="name"
+          formControlName="name"
+          required
+          data-cy="keramiekInput"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            keramiekFormGroup.get('name')['errors'] &&
+            keramiekFormGroup.get('name').touched
+          "
+        >
+          {{ errorMessage(keramiekFormGroup.get("name")["errors"]) }}
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">{{ 'keramiek.kleur' | translate}}</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="{{'keramiek.kleur.groen' | translate }}"
+            aria-label="color"
+            formControlName="color"
+            data-cy="colorInput"
+            required
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              keramiekFormGroup.get('color')['errors'] &&
+              keramiekFormGroup.get('color').touched
+            "
+          >
+            {{ errorMessage(keramiekFormGroup.get("color")["errors"]) }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">{{'keramiek.prijs' | translate}}</label>
+          <select
+            class="form-control"
+            id="exampleFormControlSelect1"
+            formControlName="price"
+            required
+            data-cy="selectPrice"
+          >
+            <option *ngFor="let p of prices" [value]="p">{{ p }}</option>
+          </select>
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              keramiekFormGroup.get('price')['errors'] &&
+              keramiekFormGroup.get('price').touched
+            "
+          >
+            {{ errorMessage(keramiekFormGroup.get("price")["errors"]) }}
+          </div>
+        </div>
+        <!-- <div class="custom-file">
+          <label class="custom-file-label">Afbeelding</label>
+            <input type="file" accept="image/*" class="custom-file-input" id="validatedCustomFile" (change)="fileProgress($event) formControlName="imageUrl" data-cy="imageInput" required >
+            <label class="custom-file-label" for="validatedCustomFile">Afbeelding...</label>
+            <div *ngIf="fileUploadProgress">
+            Upload progress: {{ fileUploadProgress }}
+          </div>
+            <br/>
+            <div class="alert alert-danger" *ngIf="keramiekFormGroup.get('imageUrl')['errors'] && keramiekFormGroup.get('imageUrl').touched">
+                {{ errorMessage(keramiekFormGroup.get('imageUrl')['errors']) }}
+           </div> 
+           <br/>
+          </div> -->
+        <div class="custom-file">
+          <label for="exampleFormControlSelect1">{{'keramiek.img' | translate}}</label>
+          <div class="form-group">
+            <input type="file" name="image" (change)="fileProgress($event)" />
+          </div>
+          <div *ngIf="fileUploadProgress">
+            Upload progress: {{ fileUploadProgress }}
+          </div>
+          <div class="image-preview mb-3" *ngIf="previewUrl">
+            <img [src]="previewUrl" height="300" />
+          </div>
+
+          <div class="mb-3" *ngIf="uploadedFilePath">
+            {{ uploadedFilePath }}
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">{{ 'keramiek.korte-beschrijving' | translate }}</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            placeholder="..."
+            rows="4"
+            aria-label="description"
+            formControlName="description"
+            data-cy="descriptionInput"
+            required
+          ></textarea>
+          <!-- {{'keramiek.description' | translate }} -->
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            keramiekFormGroup.get('description')['errors'] &&
+            keramiekFormGroup.get('description').touched
+          "
+        >
+          {{ errorMessage(keramiekFormGroup.get("description")["errors"]) }}
+        </div>
+        <div class="container">
+          <div class="col-auto">
+            <button
+              type="button"
+              class="btn btn-primary mb-2"
+              type="submit"
+              [disabled]="!keramiekFormGroup.valid"
+              data-cy="submitButton"
+            >
+              {{'Submit' | translate}}
+            </button>
+          </div>
+        </div>
+      </form>
+      <div></div>
+    </div>
+  </div>
+</div>

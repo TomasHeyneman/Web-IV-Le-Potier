@@ -1,0 +1,32 @@
+                
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
+         <h1 class="my-0 mr-md-auto font-weight-light">Le Potier</h1> 
+                    <nav class="nav justify-content-center">
+                                    <a  href="#" type="btn btn-primary" class="btn button-outline-pirmary" [routerLink]="['keramiek/list']" data-cy="list">Lijst/List</a>
+                                    <a  href="#" type="button" class="btn button-outline-secondary" [routerLink]="['keramiek/shopping-cart']" data-cy="shopping-cart">Shopping-cart</a>
+                                    <a  href="#" type="button" class="btn button-outline-secondary" [routerLink]="['keramiek/aboutme']" data-cy="aboutme">About me/Over mij</a>
+                          <span *ngIf="loggedInUser$ | async as user; else loginTemplate">
+                                <span class="fill-space"></span>
+                                Hallo! {{ user }}
+                                <button class="btn btn-dark" (click)="logout()" data-cy="logout">
+                                  logout
+                                </button>
+                              </span>
+                              <ng-template #loginTemplate>
+                                <span>
+                                  <!-- <button (click)="login()" >
+                                    login
+                                  </button> -->
+                                </span>
+                        
+                            <a href="#" type="button" class="btn button-outline-primary mr-1" [routerLink]="['/login']">Aanmelden</a>
+                            <a href="#" type="button" class="btn button-outline-secondary" data-cy="register" [routerLink]="['/register']">Registreren</a>
+                        
+
+                      
+
+    
+                
+               
+  
+                

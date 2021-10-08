@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "mok 1",
+        "description": "Kleine beschrijving",
+        "price": "20.0",
+        "color": "Groen"
+    },
+    {
+        "id": 2,
+        "name": "mok 2",
+        "description": "Kleine beschrijving",
+        "price": "40.0",
+        "color": "Paars"
+    },
+    {
+        "id": 3,
+        "name": "mok 1",
+        "description": "Kleine beschrijving",
+        "price": "60.0",
+        "color": "Geel"
+    }
+]

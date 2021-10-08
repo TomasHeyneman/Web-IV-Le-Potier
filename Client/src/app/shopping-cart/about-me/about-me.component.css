@@ -1,0 +1,21 @@
+
+/* Include padding and border in total box size*/
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that float next to each other */
+.column-2 {
+   /* float: left; */
+  width: 50%;
+  padding: 40px;
+  padding-left:80px;
+  padding-right: 75px;
+  height: 475px;
+  margin:30px;
+  margin-right:30px;
+  margin-bottom: 70px;
+  background-color:lightblue; 
+  line-height:2.02; 
+  box-sizing: content-box;  
+}

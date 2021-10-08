@@ -1,0 +1,66 @@
+<div class="container-fluid">
+<p>
+  <button type="button" class="btn btn-dark" (click)="useLanguage('en')">English</button>
+  <p>
+      <button type="button" class="btn btn-dark" (click)="useLanguage('nl')">Nederlands</button>
+</p>
+</div>
+
+<br/>
+<div class="container-fluid">
+<div class="row"> 
+  <form class="form-inline">
+    <div class="col-md-1">
+      <input
+        (keyup)="filterKeramiek$.next($event.target.value)"
+        type="text"
+        placeholder="filter keramiek..."
+        type="text"
+        data-cy="filterInput"
+        [value]="filterKeramiekName" 
+      />
+     
+    </div>
+    
+  </form>
+  </div>
+  
+</div>
+<div
+class="container"
+>
+<!-- <div *ngIf="keramieks; else loadingOrError" class="row" >  -->
+   <!-- <div *ngIf="(keramieks$ | async) as keramieks; else loadingOrError" class="row" >  -->
+     <div *ngIf="(keramieks$ | async) as keramieks; else loadingOrError" class="row" > 
+       <div
+    class="localKeramiek"
+      class="col-sm-4 py-2" 
+     *ngFor="
+     let localKeramiek of (keramieks | keramiekfilter: filterKeramiekName)"
+       >
+       <!-- *ngFor=" let localKeramiek of keramieks" -->
+       <!-- *ngFor="
+      let localKeramiek of (keramieks | keramiekfilter: filterKeramiekName)" > -->
+      
+      <app-keramiek [keramiek]="localKeramiek" data-cy="keramiekCardList" class="card" ></app-keramiek> 
+    </div>
+  </div>
+   
+  <br/>
+<div class="alert-danger py-1" >
+  <div class="error" *ngIf="errorMessage" class="card-body" data-cy="appError" >
+      Got an error while loading the keramiek list: {{ errorMessage }}
+  </div>
+</div>
+<div class="container-fluid">
+  
+<ng-template #loadingOrError>
+  <span *ngIf="errorMessage; else loading"></span>
+  <ng-template #loading>
+      <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+  </ng-template>
+</ng-template>
+</div> 
+</div>

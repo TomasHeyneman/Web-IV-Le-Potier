@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="guest-form-card card">
+  
+        <div class="card-header text-center">
+          <h2>Login</h2>
+        </div>
+  
+        <div class="card-body">
+            {{ model.valid }}
+          <form [formGroup]="user" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input id="username" class="form-control" [ngClass]="{ 'is-invalid': user.get('username') && user.get('username').invalid }"  name="username" formControlName="username" #username [(ngModel)]="model.username" required/>
+              <div class="invalid-feedback"  >
+                    Username moet ingevuld zijn!  </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control" [ngClass]="{ 'is-invalid': user.get('password') && user.get('password').invalid }" formControlName="password" [(ngModel)]="model.password" required />
+              <div class="invalid-feedback"   >
+                    Password moet ingevuld zijn!  </div>
+            </div>
+
+            <button class="btn btn-secondary btn-block" color="primary" [disabled]= "user.invalid">Login</button>
+            <a [routerLink]="['/register']">Registreer hier</a>
+          </form>
+          <div class=" alert alert-danger" *ngIf="errorMsg">
+        <span data-cy="appError">
+                Oeps, iets ging fout tijdens het laden van de shopping-cart: {{ errorMsg }}
+                </span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  

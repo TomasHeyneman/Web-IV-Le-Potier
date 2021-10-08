@@ -1,0 +1,153 @@
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <div class="guest-form-card card">
+      <div class="card-header text-center">
+        <h2>Registreer</h2>
+      </div>
+
+      <div class="card-body">
+        <form [formGroup]="user" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Naam</label>
+            <input
+              id="name"
+              class="form-control"
+              formControlName="firstname"
+              placeholder="naam"
+            
+            />
+             <!-- [ngClass]= "{ 'is-invalid': user.get('firstname').errors && user.get('firstname').touched }" -->
+            <!-- <span class="invalid-feedback">
+                    <span *ngIf="user.get('firstname').errors && user.get('firstname')">{{ getErrorMessage(user.get('firstname').errors) }}</span>
+                  </span> -->
+
+                 
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                user.get('firstname').errors && user.get('firstname').touched
+              "
+            >
+              {{ getErrorMessage(user.get("firstname").errors) }}
+          </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Achternaam</label>
+            <input
+              type="text"
+              id="lastname"
+              aria-label="lastname"
+              class="form-control"
+              formControlName="lastname"
+              placeholder="achternaam"
+            
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                user.get('lastname').errors && user.get('lastname').touched
+              "
+            >
+              {{ getErrorMessage(user.get('lastname').errors) }}
+          </div>
+          <!-- [ngClass]= "{ 'is-invalid': user.get('lastname').errors && user.get('lastname').touched }" -->
+          <!-- <span class="invalid-feedback">
+                <span *ngIf="user.get('lastname').errors && user.get('lastname')">{{ getErrorMessage(user.get('lastname').errors) }}</span>
+              </span> -->
+        </div>
+
+          <div class="form-group">
+            <label for="username">Email:</label>
+            <input
+              placeholder="email"
+              id="email"
+              aria-label="email"
+              formControlName="email"
+              
+            />
+            <div
+              class=" alert alert-danger"
+              *ngIf="user.get('email').errors && user.get('email').touched"
+            >
+              {{ getErrorMessage(user.get('email').errors) }}
+                </div>
+                <!-- [ngClass]= "{ 'is-invalid': user.get('email').errors && user.get('email').touched }" -->
+           <!-- <span class="invalid-feedback">
+                    <span *ngIf="user.get('email').errors && user.get('email').touched">{{ getErrorMessage(user.get('email').errors) }}</span>
+                  </span> -->
+
+          </div>
+         <span formGroupName="passwordGroup">
+          <div class="form-group" >
+            <label for="password" >Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="password"
+              aria-label="password"
+              class="form-control"
+              formControlName="password"
+            />
+                  <div
+                  class="alert alert-danger"
+                  *ngIf="
+                    user.get('passwordGroup').get('password').errors &&
+                    user.get('passwordGroup').get('password').touched
+                  "
+                >
+                  {{
+                    getErrorMessage(
+                      user.get("passwordGroup").get("password").errors
+                    )
+                  }}
+                </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Bevestig Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              class="form-control"
+              aria-label="confirm password"
+              placeholder="bevestig password"
+              formControlName="confirmPassword"
+            />
+             <div
+              class="alert alert-danger"
+              *ngIf="
+                user.get('passwordGroup').get('confirmPassword').errors &&
+                user.get('passwordGroup').get('confirmPassword').touched
+              "
+            >
+              {{
+                getErrorMessage(
+                  user.get("passwordGroup").get("confirmPassword").errors
+                )
+              }}
+            </div> 
+           
+          <div class="alert alert-danger"
+              *ngIf="
+                user.get('passwordGroup').errors &&
+                user.get('passwordGroup').get('confirmPassword').touched &&
+                user.get('passwordGroup').get('password').touched
+              "
+            >
+              {{ getErrorMessage(user.get("passwordGroup").errors) }}
+            </div>
+          </div> 
+        </span>
+
+          <button  color="primary" class="btn btn-secondary btn-block"  type="submit">Registreer</button>
+          <a [routerLink]="['/login']">Login</a>
+        </form>
+      </div>
+      <div class="alert alert-danger" *ngIf="errorMessage" data-cy="appError">
+        Oeps, er ging iets mis tijdens het laden van de shopping-cart:
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+{
+	"Keramiek": "Keramiek",
+	"Submit": "Bevestig",
+	"keramiek.about-me": "",
+	"keramiek.cart": "Winkelmand is leeg, voeg items toe!",
+	"keramiek.description": "Kleine beschrijving van de keramiek!",
+	"keramiek.img": "Afbeelding",
+	"keramiek.kleur": "Kleur",
+	"keramiek.kleur.groen": "Groen",
+	"keramiek.kleur:": "Kleur",
+	"keramiek.korte-beschrijving": "Beschrijving",
+	"keramiek.korte-beschrijving:": "Beschrijving",
+	"keramiek.list": "",
+	"keramiek.maker": "Maker",
+	"keramiek.naam:": "Naam:",
+	"keramiek.name": "Naam keramiek: {{ name }}",
+	"keramiek.name.pot": "Pot",
+	"keramiek.prijs": "Prijs",
+	"keramiek.shopping-cart-name": "",
+	"keramiek.toevoegen-aan-winkelwagen": "Toevoegen aan winkelwagen"
+}

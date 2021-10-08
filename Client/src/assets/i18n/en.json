@@ -1,0 +1,21 @@
+{
+	"Keramiek": "Ceramic",
+	"Submit": "Submit",
+	"keramiek.about-me": "Over mij",
+	"keramiek.cart": "Cart is empty!",
+	"keramiek.description": "Little description for the ceramic!",
+	"keramiek.img": "Image",
+	"keramiek.kleur": "Color",
+	"keramiek.kleur.groen": "Green",
+	"keramiek.kleur:": "Color",
+	"keramiek.korte-beschrijving": "Description",
+	"keramiek.korte-beschrijving:": "Description",
+	"keramiek.list": "Lijst keramiek",
+	"keramiek.maker": "Maker",
+	"keramiek.naam:": "Name:",
+	"keramiek.name": "Name of ceramic: {{ name }}",
+	"keramiek.name.pot": "Bowl",
+	"keramiek.prijs": "Price",
+	"keramiek.shopping-cart-name": "Shopping-cart",
+	"keramiek.toevoegen-aan-winkelwagen": "Add to Cart"
+}

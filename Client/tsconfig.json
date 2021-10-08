@@ -1,0 +1,39 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+ {
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext", // add this line
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+
+  "angularCompilerOptions": {
+     "enableI18nLegacyMessageIdFormat": false,
+     "strictTemplates": false,
+     "fullTemplateTypeCheck": true,
+     "strictInjectionParameters": true,
+     "strictInputAccessModifiers": false,
+     //"noImplicitAny":false,
+     "strictNullChecks": false,
+     "noImplicitThis": false,
+  }
+
+}
